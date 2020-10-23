@@ -22,7 +22,18 @@
             <a class="nav-link"
                href="{{ path('default_category', { 'alias' : 'sports' }) }}">Sports</a>
             <a class="nav-link"
-               href="{{ path('default_category', { 'alias' : 'loisirs' }) }}" >Loisirs</a>
+               href="{{ path('default_category', { 'alias' : 'loisirs' }) }}">Loisirs</a>
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                <a class="nav-link" href="{{ path('post_create') }}">Créer un article</a>
+            {% else %}
+
+                <a class="nav-link" href="{{ path('user_create') }}">Inscription</a>
+
+                <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+            {% endif %}
+
         </div>
     </div>
 </nav>
