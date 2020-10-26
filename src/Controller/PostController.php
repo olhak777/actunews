@@ -34,11 +34,7 @@ class PostController extends AbstractController
         $post = new Post();
 
         #1b. Attribution d'un user
-        # FIXME Temporaire
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->find(1);
-
+        $user = $this->getUser();
         $post->setUser($user);
 
         #1c. Ajout de la date de rédaction
